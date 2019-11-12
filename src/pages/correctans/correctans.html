@@ -1,0 +1,44 @@
+<!--
+  Generated template for the CorrectansPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Status</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+<h2>Number of Correct Answer {{correct}}</h2>
+<h2>Number of Wrong Answer {{wrong}}</h2>
+<h2>Skip Questions {{skipdata}} </h2>
+<br>
+<h2 style="text-align:center;">Answers</h2>
+
+<ion-item text-wrap *ngFor="let p of categories" lines="full">
+  <ion-label>
+    {{p.question}}
+  </ion-label>
+  <ion-label class="date_style">
+    <div *ngIf="p.answer=='A'">
+	{{p.option1}}
+	</div>
+	<div *ngIf="p.answer=='B'">
+	{{p.option2}}
+	</div>
+	<div *ngIf="p.answer=='C'">
+	{{p.option3}}
+	</div>
+	<div *ngIf="p.answer=='D'">
+	{{p.option4}}
+	</div>
+  </ion-label>
+</ion-item>
+
+</ion-content>

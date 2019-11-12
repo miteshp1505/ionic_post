@@ -1,0 +1,57 @@
+<!--
+  Generated template for the PostsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{category_name}} POSTS({{language_name}})</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+<ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+<ion-item text-wrap *ngFor="let p of posts" (click)="openLink(p.post_link,p.pdf)" lines="full">
+  <ion-label>
+    {{p.post_title}}
+  </ion-label>
+  <ion-label class="date_style">
+    {{p.date_created}}
+  </ion-label>
+</ion-item>
+
+  
+<!-- <ion-grid> -->
+	<!-- <ion-row *ngFor="let p of posts"> -->
+		<!-- <ion-col> -->
+			<!-- <ion-card class="animated fadeIn" (click)="openLink(p.post_link)"> -->
+			  <!-- <div class="card-thumb">  -->
+			  <!-- 2.0 updates -->
+				<!-- <img class="image" src="{{p.post_image}}" (click)="getPosts(c.post_cate_id)" /> -->
+			  <!-- </div> -->
+			  <!-- <ion-card-header> -->
+				<!-- <ion-card-content><span class="">{{p.total}}</span><div class="line-clamp">{{p.post_title}}</div></ion-card-content> -->
+				<!-- <ion-card-content><div class="date_style">{{p.date_created}}</div></ion-card-content> -->
+			  <!-- </ion-card-header> -->
+
+			  <!-- <ion-card-content> -->
+				<!-- <div class="desc_content">{{p.post_description}}</div> -->
+			  <!-- </ion-card-content> -->
+			<!-- </ion-card> -->
+		<!-- </ion-col> -->
+	<!-- </ion-row> -->
+<!-- </ion-grid> -->
+
+<ion-col *ngIf="posts.length==0 && loadingServerData " col-12 class="animated fadeIn">
+			<h6 text-center>No Posts Found!</h6>
+</ion-col>
+
+</ion-content>

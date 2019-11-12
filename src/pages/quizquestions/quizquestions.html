@@ -1,0 +1,128 @@
+<!--
+  Generated template for the QuizquestionsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Quiz Questions</ion-title>
+	<ion-buttons right>
+	<button ion-button>{{timercount}}</button>
+	</ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding >
+
+<ion-slides #SwipedTabsSlider
+			 (ionSlideWillChange)="updateIndicatorPosition()"
+              (ionSlideDidChange)="updateIndicatorPosition()">
+	<ion-slide *ngFor="let c of categories; let i= index;">
+	<ion-scroll scrollY="true">
+	<h2>Question {{c.question_id}}</h2>
+		
+		<img *ngIf="c.question_images" class="image" src="https://myaik.website/aik/{{c.question_images}}"/>
+		
+		<ion-item class="question_text" text-wrap><span [innerHTML]=c.question></span></ion-item>
+		
+		<!--<ion-list radio-group [(ngModel)]="autoManufacturers">
+		  <ion-item>
+			<ion-label>{{c.option1}}</ion-label>
+			<ion-radio value="A"></ion-radio>
+		  </ion-item>
+		  <ion-item>
+			<ion-label>{{c.option2}}</ion-label>
+			<ion-radio value="B"></ion-radio>
+		  </ion-item>
+		  <ion-item>
+			<ion-label>{{c.option3}}</ion-label>
+			<ion-radio value="C"></ion-radio>
+		  </ion-item>
+		  <ion-item>
+			<ion-label>{{c.option4}}</ion-label>
+			<ion-radio value="D"></ion-radio>
+		  </ion-item>
+		</ion-list>-->
+		
+		
+		<ion-list radio-group>
+		  <ion-item text-wrap>
+			<ion-label>{{c.option1}}</ion-label>
+			<ion-radio value="A" (ionSelect)="mcqAnswer(i,'A',c.answer)"></ion-radio>
+		  </ion-item>
+		  <ion-item text-wrap>
+			<ion-label>{{c.option2}}</ion-label>
+			<ion-radio value="B" (ionSelect)="mcqAnswer(i,'B',c.answer)"></ion-radio>
+		  </ion-item>
+		  <ion-item text-wrap>
+			<ion-label>{{c.option3}}</ion-label>
+			<ion-radio value="C" (ionSelect)="mcqAnswer(i,'C',c.answer)"></ion-radio>
+		  </ion-item>
+		  <ion-item text-wrap>
+			<ion-label>{{c.option4}}</ion-label>
+			<ion-radio value="D" (ionSelect)="mcqAnswer(i,'D',c.answer)"></ion-radio>
+		  </ion-item>
+		</ion-list>
+		
+		<!-- <button *ngIf="countdata==true"  ion-item color="primary" class="btncolor" (click)="submitans()" >Submit</button> -->
+		
+		<!--<ion-grid>
+		<ion-row>
+			<ion-col col-6 >
+			<button ion-button round outline >Previous</button>
+			</ion-col>
+			<ion-col col-6 >
+			<button ion-button round outline (click)="submitans()">Submit</button>
+			</ion-col>
+		</ion-row>
+		</ion-grid>
+		
+		
+		<ion-grid>
+		<ion-row>
+			<ion-col col-6 >
+			<button ion-button round outline >Previous</button>
+			</ion-col>
+			<ion-col col-6 >
+			<button ion-button round outline >Next</button>
+			</ion-col>
+		</ion-row>
+		</ion-grid> -->
+	
+		
+		</ion-scroll>
+		<br>
+		<br>
+		<ion-footer>
+		<ion-grid *ngIf="countdata==false">
+		<ion-row>
+			<ion-col col-6 >
+			<button ion-button round outline (click)="prev()" >Previous</button>
+			</ion-col>
+			<ion-col col-6 >
+			<button ion-button round outline (click)="next()">Next</button>
+			</ion-col>
+		</ion-row>
+		</ion-grid>
+		
+		
+		<ion-grid *ngIf="countdata==true">
+		<ion-row>
+			<ion-col col-6 >
+			<button ion-button round outline (click)="prev()" >Previous</button>
+			</ion-col>
+			<ion-col col-6 >
+			<button ion-button round outline (click)="submitans()">Submit</button>
+			</ion-col>
+		</ion-row>
+		</ion-grid>
+		</ion-footer>
+	</ion-slide>
+</ion-slides>
+
+
+</ion-content>

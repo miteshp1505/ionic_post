@@ -1,0 +1,27 @@
+page-quizquestions {
+ion-scroll {
+    white-space: nowrap;
+    height: 500px;
+}
+
+.question_text{
+	text-align:center;
+}
+
+[text-wrap] .label-md {
+	font-size:16px !important;
+}
+
+ion-footer{
+    background: #3737a7;
+}
+
+.button-outline-md {
+    color: white !important;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ffffff;
+    box-shadow: none;
+}
+
+}

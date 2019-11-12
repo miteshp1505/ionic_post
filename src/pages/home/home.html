@@ -1,0 +1,430 @@
+<ion-header>
+  <ion-navbar class="head_style">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <!--<img ion-right src="assets/imgs/bananalogo.png" class="navbarLogo" />-->
+    <ion-title>Home</ion-title>
+	
+	<ion-buttons end>
+	   <button class="sharebtn" (click)="share()">
+	   <ion-icon name="share"></ion-icon>
+	 </button>
+	 <button class="ratingbtn" (click)="rating()">Rate</button>
+	 </ion-buttons>
+	
+	
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+<ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  
+  
+  
+<!--<ion-label style="font-size: 16px; color:white; text-align:center; background-color:#00008b; padding-top:10px; padding-bottom:10px; margin:0px;" >
+LATEST NEWS
+</ion-label>-->  
+
+<!--<ion-grid>
+	<ion-row>
+		<ion-col col-4>
+			<!-- <ion-card class="myCard"> -->
+				<!-- <img src="{{c.cat_image}}" (click)="getPosts(c.post_cate_id,c.category_name)"/> -->
+				<!-- <div class="myOverlay"> -->
+				   <!-- <div class="card-title">{{c.category_name}}</div> -->
+				<!-- </div> -->
+			  <!-- </ion-card> -->
+			<!-- <ion-card class="animated fadeIn" (click)="getfeed()"> -->
+			  <!-- <div class="card-thumb">  -->
+			   <!-- 2.0 updates-->
+			  <!--</div>
+			  <ion-card-content>
+				<ion-card-title>
+				  <div class="line-clamp"> Times of India</div>
+				</ion-card-title>
+			  </ion-card-content>
+
+			</ion-card>
+		</ion-col>
+	</ion-row>
+</ion-grid> --> 
+
+<div class="module">
+    <ion-slides slidesPerView=3.5  class="animate-product">
+      <ion-slide>
+			<ion-card class="animated fadeIn" (click)="getfeed()">
+			  <div class="card-thumb"> 
+			   <!-- 2.0 updates-->
+				<img class="image" src="assets/imgs/timesofindia.png" />
+				</div>
+			  <ion-card-content>
+				<ion-card-title>
+				  <div class="line-clamp">Times of india</div>
+				</ion-card-title>
+			  </ion-card-content>
+
+			</ion-card>
+	  </ion-slide>
+	  <ion-slide>
+			<ion-card class="animated fadeIn" (click)="getBBC()">
+			  <div class="card-thumb"> 
+			   <!-- 2.0 updates-->
+				<img class="image" src="assets/imgs/hindustantimes.jpg" />
+			</div>
+			  <ion-card-content>
+				<ion-card-title>
+				  <div class="line-clamp">Hindustan Times</div>
+				</ion-card-title>
+			  </ion-card-content>
+
+			</ion-card>
+	  </ion-slide>
+	  <ion-slide>
+			<ion-card class="animated fadeIn" (click)="getHindu()">
+			 <div class="card-thumb"> 
+			   <!-- 2.0 updates-->
+				<img class="image" src="assets/imgs/TheHinduLogo.png" />
+			</div>
+			  <ion-card-content>
+				<ion-card-title>
+				  <div class="line-clamp">The Hindu</div>
+				</ion-card-title>
+			  </ion-card-content>
+
+			</ion-card>
+	  </ion-slide>
+	  <ion-slide>
+			<ion-card class="animated fadeIn" (click)="getJagran()">
+			  <div class="card-thumb"> 
+			   <!-- 2.0 updates-->
+				<img class="image" src="assets/imgs/pib.jpg" />
+			</div>
+			  <ion-card-content>
+				<ion-card-title>
+				  <div class="line-clamp">PIB News</div>
+				</ion-card-title>
+			  </ion-card-content>
+
+			</ion-card>
+	  </ion-slide>
+	  <ion-slide>
+			<ion-card class="animated fadeIn" (click)="getIndianExpress()">
+			 <div class="card-thumb"> 
+			   <!-- 2.0 updates-->
+				<img class="image" src="assets/imgs/livehindustan.png" />
+			</div>
+			  <ion-card-content>
+				<ion-card-title>
+				  <div class="line-clamp">Live Hindustan News</div>
+				</ion-card-title>
+			  </ion-card-content>
+
+			</ion-card>
+	  </ion-slide>
+	  <ion-slide>
+			<ion-card class="animated fadeIn" (click)="getDainikbhaskar()">
+			 <div class="card-thumb"> 
+			   <!-- 2.0 updates-->
+				<img class="image" src="assets/imgs/dainik.png" />
+			</div>
+			  <ion-card-content>
+				<ion-card-title>
+				  <div class="line-clamp">Dainik Bhaskar</div>
+				</ion-card-title>
+			  </ion-card-content>
+
+			</ion-card>
+	  </ion-slide>
+    </ion-slides>
+  </div>
+
+<ion-label style="font-size: 16px;color:white; text-align:center; background-color:#00008b; padding-top:10px; padding-bottom:10px; margin:0px;" >
+ALL INDIA RADIO
+</ion-label>
+
+<ion-card class="animated fadeIn" (click)="getAudio()">
+			  <div class="card-thumb"> 
+			   <!-- 2.0 updates-->
+			  </div>
+			  <ion-card-content>
+				<ion-card-title>
+				  <div class="line-clamp">Listen Today's News</div>
+				</ion-card-title>
+			  </ion-card-content>
+
+</ion-card>
+
+<ion-label style="font-size: 16px;color:white; text-align:center; background-color:#00008b; padding-top:10px; padding-bottom:10px; margin:0px;" >
+LATEST GOVERNMENT NOTIFICATION
+</ion-label>
+
+<ion-grid>
+	<ion-row>
+		<ion-col col-3>
+			<ion-card class="animated fadeIn" (click)="getjobs()">
+			  <ion-card-content>
+				<ion-card-title>
+				  <div class="line-clamp">JOBS</div>
+				</ion-card-title>
+			  </ion-card-content>
+
+			</ion-card>
+		</ion-col>
+		<ion-col col-3>
+			<ion-card class="animated fadeIn" (click)="getadmit()">
+			  <ion-card-content>
+				<ion-card-title>
+				  <div class="line-clamp">ADMIT</div>
+				</ion-card-title>
+			  </ion-card-content>
+
+			</ion-card>
+		</ion-col>
+	
+		<ion-col col-3>
+			<ion-card class="animated fadeIn" (click)="getresult()">
+			  <ion-card-content>
+				<ion-card-title>
+				  <div class="line-clamp">RESULT</div>
+				</ion-card-title>
+			  </ion-card-content>
+
+			</ion-card>
+		</ion-col>
+		
+		<ion-col col-3>
+			<ion-card class="animated fadeIn" (click)="getother()">
+			  <ion-card-content>
+				<ion-card-title>
+				  <div class="line-clamp">OTHER</div>
+				</ion-card-title>
+			  </ion-card-content>
+
+			</ion-card>
+		</ion-col>
+	</ion-row>
+</ion-grid>
+
+
+<ion-label style="font-size: 16px; color:white; text-align:center; background-color:#00008b; padding-top:10px; padding-bottom:10px; margin:0px;" >
+CATEGORIES
+</ion-label>  
+
+<ion-grid>
+	<ion-row>
+	
+		<ion-col (click)="openSubjectFeaturedQuiz()" col-3>
+		<ion-card class="animated fadeIn">
+			<div class="card-thumb"> 
+			   <!-- 2.0 updates-->
+				<img class="image" src="https://myaik.website/aik/category_images/featured.png" />
+			  </div>
+			  <ion-card-content>
+				<ion-card-title>
+				  <div class="line-clamp">Featured</div>
+				</ion-card-title>
+			  </ion-card-content>
+
+			</ion-card>
+		</ion-col>
+	
+		<ion-col *ngFor="let c of categories" col-3>
+			<!-- <ion-card class="myCard"> -->
+				<!-- <img src="{{c.cat_image}}" (click)="getPosts(c.post_cate_id,c.category_name)"/> -->
+				<!-- <div class="myOverlay"> -->
+				   <!-- <div class="card-title">{{c.category_name}}</div> -->
+				<!-- </div> -->
+			  <!-- </ion-card> -->
+			<ion-card class="animated fadeIn">
+			  <div class="card-thumb"> 
+			   <!-- 2.0 updates-->
+				<img class="image" src="https://myaik.website/aik/{{c.cat_image}}" (click)="getPosts(c.post_cate_id,c.category_name)" />
+			  </div>
+			  <ion-card-content>
+				<ion-card-title>
+				  <div class="catstyle">{{c.category_name}}</div>
+				</ion-card-title>
+			  </ion-card-content>
+
+			</ion-card>
+		</ion-col>
+	</ion-row>
+</ion-grid>
+
+<ion-card class="animated fadeIn" (click)="getnewposts()">
+			  <div class="card-thumb"> 
+			  </div>
+			  <ion-card-content>
+				<ion-card-title>
+				  <div class="line-clamp">All Post's</div>
+				</ion-card-title>
+			  </ion-card-content>
+
+</ion-card>
+
+<ion-label style="font-size: 16px; color:white; text-align:center; background-color:#00008b; padding-top:10px; padding-bottom:10px; margin:0px;" >
+VIEW ALL EXAM
+</ion-label>
+
+<ion-grid>
+	<ion-row>
+		
+		
+		<ion-col *ngFor="let c of quizexamcategories" (click)="openQuizCat(c.id)" col-3>
+			<!-- <ion-card class="myCard"> -->
+				<!-- <img src="{{c.cat_image}}" (click)="getPosts(c.post_cate_id,c.category_name)"/> -->
+				<!-- <div class="myOverlay"> -->
+				   <!-- <div class="card-title">{{c.category_name}}</div> -->
+				<!-- </div> -->
+			  <!-- </ion-card> -->
+			<ion-card class="animated fadeIn">
+			<div class="card-thumb"> 
+			   <!-- 2.0 updates-->
+				<img class="image" src="https://myaik.website/aik/{{c.quiz_image}}" />
+			  </div>
+			  <ion-card-content>
+				<ion-card-title>
+				  <div class="line-clamp">{{c.quiz_cate_name}}</div>
+				</ion-card-title>
+			  </ion-card-content>
+
+			</ion-card>
+		</ion-col>
+	</ion-row>
+</ion-grid>
+
+<ion-card class="animated fadeIn" (click)="getquiz(1)">
+			  <div class="card-thumb"> 
+			  </div>
+			  <ion-card-content>
+				<ion-card-title>
+				  <div class="line-clamp">All Quiz's</div>
+				</ion-card-title>
+			  </ion-card-content>
+
+		</ion-card>
+		
+
+<ion-label style="font-size: 16px; color:white; text-align:center; background-color:#00008b; padding-top:10px; padding-bottom:10px; margin:0px;" >
+VIEW ALL SUBJECT
+</ion-label>
+
+
+
+
+<ion-grid>
+	<ion-row>
+	
+		<ion-col *ngFor="let c of quizsubjectcategories" (click)="openQuizCat(c.id)" col-3>
+			<!-- <ion-card class="myCard"> -->
+				<!-- <img src="{{c.cat_image}}" (click)="getPosts(c.post_cate_id,c.category_name)"/> -->
+				<!-- <div class="myOverlay"> -->
+				   <!-- <div class="card-title">{{c.category_name}}</div> -->
+				<!-- </div> -->
+			  <!-- </ion-card> -->
+			<ion-card class="animated fadeIn">
+			<div class="card-thumb"> 
+			   <!-- 2.0 updates-->
+				<img class="image" src="https://myaik.website/aik/{{c.quiz_image}}" />
+			  </div>
+			  <ion-card-content>
+				<ion-card-title>
+				  <div class="line-clamp">{{c.quiz_cate_name}}</div>
+				</ion-card-title>
+			  </ion-card-content>
+
+			</ion-card>
+		</ion-col>
+	</ion-row>
+</ion-grid>
+
+<ion-card class="animated fadeIn" (click)="getquiz(2)">
+			  <div class="card-thumb"> 
+			  </div>
+			  <ion-card-content>
+				<ion-card-title>
+				  <div class="line-clamp">All Quiz's</div>
+				</ion-card-title>
+			  </ion-card-content>
+
+</ion-card>
+<!--<ion-grid>
+	<ion-row>
+		<ion-col col-5 (click)="openQuizCat(1)">
+			<ion-card class="animated fadeIn">
+			<!--<div class="card-thumb"> 
+			   <!-- 2.0 updates
+				<img class="image" src="assets/imgs/exam.jpg" />
+			</div>
+			
+			  <ion-card-content>
+				<ion-card-title>
+				  <div class="examstyle">Exam Wise Quiz</div>
+				</ion-card-title>
+			  </ion-card-content>
+			</ion-card>
+		</ion-col>
+		<ion-col col-7 (click)="openQuizCat(2)">	
+			<ion-card class="animated fadeIn">
+			<!--<div class="card-thumb"> 
+			   <!-- 2.0 updates
+				<img class="image" src="assets/imgs/maths.jpg" />
+			</div>
+			
+			  <ion-card-content>
+				<ion-card-title>
+				  <div class="examstyle">Subject Wise Quiz-Maths</div>
+				</ion-card-title>
+			  </ion-card-content>
+			</ion-card>
+		</ion-col>
+	</ion-row>
+</ion-grid>-->
+
+<!--<ion-card class="animated fadeIn" (click)="getquiz()">
+			  <div class="card-thumb"> 
+			  </div>
+			  <ion-card-content>
+				<ion-card-title>
+				  <div class="line-clamp">All Quiz's</div>
+				</ion-card-title>
+			  </ion-card-content>
+
+</ion-card>-->
+
+<!-- <button ion-button (click)="getfeed()">GET FEED</button> -->
+
+
+  <!--<h2>Welcome</h2>
+  <ion-item id="udpateBox">
+    <textarea #updatebox [(ngModel)]="userPostData.feed" autofocus></textarea>
+    <ion-row>
+      <button ion-button color="energy" (click)="feedUpdate()">Update</button>
+    </ion-row>
+  </ion-item>
+
+  <ion-card *ngFor="let item of dataSet; let msgIndex = index">
+    <ion-item>
+      <ion-icon name="trash" item-right (click)="feedDelete(item.feed_id, msgIndex)"></ion-icon>
+      <ion-card-content>
+        <p [innerHTML]="item.feed | linky"></p>
+        <span>{{this.converTime(item.created) | amTimeAgo}}</span>
+      </ion-card-content>
+    </ion-item>
+  </ion-card>
+
+  <ion-card *ngIf="noRecords">
+    <ion-item>
+      No Records
+    </ion-item>
+  </ion-card>
+
+  <ion-infinite-scroll (ionInfinite)="$event.waitFor(doInfinite())" *ngIf="!noRecords">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>-->
+
+</ion-content>
